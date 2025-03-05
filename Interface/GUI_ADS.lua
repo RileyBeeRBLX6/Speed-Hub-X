@@ -35,7 +35,6 @@ CopyButton.Size = UDim2.new(0.4, 0, 0.2, 0)
 CopyButton.Position = UDim2.new(0.1, 0, 0.7, 0)
 CopyButton.Text = "Copy Discord"
 CopyButton.Font = Enum.Font.FredokaOne
-CopyButton.TextSize = 22
 CopyButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 CopyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -45,7 +44,6 @@ ExitButton.Size = UDim2.new(0.4, 0, 0.2, 0)
 ExitButton.Position = UDim2.new(0.5, 0, 0.7, 0)
 ExitButton.Text = "Exit"
 ExitButton.Font = Enum.Font.FredokaOne
-ExitButton.TextSize = 22
 ExitButton.Visible = false
 ExitButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 ExitButton.TextColor3 = Color3.fromRGB(255, 0, 0)
@@ -55,11 +53,14 @@ WaitButton.Parent = AdFrame
 WaitButton.Size = UDim2.new(0.4, 0, 0.2, 0)
 WaitButton.Position = UDim2.new(0.5, 0, 0.7, 0)
 WaitButton.Text = "Wait For Exit [DELAY]"
-WaitButton.Font = Enum.Font.FredokaOne
-WaitButton.TextSize = 22
 WaitButton.Visible = true
+WaitButton.Font = Enum.Font.FredokaOne
 WaitButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 WaitButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+
+local autoClose = task.delay(5, function()
+    ScreenGui:Destroy()
+end)
 
 task.delay(5, function()
     WaitButton.Visible = false
@@ -77,6 +78,7 @@ CopyButton.MouseButton1Click:Connect(function()
 end)
 
 ExitButton.MouseButton1Click:Connect(function()
+    task.cancel(autoClose)
     ScreenGui:Destroy()
 end)
 
