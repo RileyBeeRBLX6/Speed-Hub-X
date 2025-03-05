@@ -23,7 +23,7 @@ local Config = {} do
   local CachedLink = ""
   local CachedTime = 0
 
-  function Config:CachLink()
+  function Config:CacheLink()
     if CachedTime + (10*60) < fOsTime() then
 
       local Respond = fRequest({
@@ -57,7 +57,7 @@ local Config = {} do
     else
       return true, CachedLink
     end
-  end; Config:CachLink()
+  end; Config:CacheLink()
 
   function Config:GenRandom()
     local Str = {}
@@ -76,12 +76,12 @@ local Config = {} do
   end; Config:SetNonce()
 
   function Config:CopyKey_Link()
-    local s, r = Config:CachLink()
+    local s, r = Config:CacheLink()
     if s then fSetClipboard(r) end
   end
 
   function Config:ReturnKey_Link()
-    local s, r = Config:CachLink()
+    local s, r = Config:CacheLink()
     if s then return r end
   end
 
