@@ -9,7 +9,6 @@ local Config = {} do
   Config.useNonce = false
 
   function Config:Messages(Val)end
-
   local requestSending = false
   local fSetClipboard = setclipboard or toclipboard
   local fRequest = request or (syn and syn.request) or (http and http.request) or http_request or syn_request
