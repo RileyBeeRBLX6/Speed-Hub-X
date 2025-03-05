@@ -58,10 +58,6 @@ WaitButton.Font = Enum.Font.FredokaOne
 WaitButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 WaitButton.TextColor3 = Color3.fromRGB(255, 0, 0)
 
-local autoClose = task.delay(5, function()
-    ScreenGui:Destroy()
-end)
-
 task.delay(5, function()
     WaitButton.Visible = false
     ExitButton.Visible = true
@@ -78,7 +74,6 @@ CopyButton.MouseButton1Click:Connect(function()
 end)
 
 ExitButton.MouseButton1Click:Connect(function()
-    task.cancel(autoClose)
     ScreenGui:Destroy()
 end)
 
