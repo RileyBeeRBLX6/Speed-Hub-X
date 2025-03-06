@@ -4,7 +4,7 @@ local lEncode, lDecode, lDigest = a3, aw, Z;
 
 local Config = {} do
   Config.API = "https://api.platorelay.com"
-  Config.service = 11
+  Config.service = Config.service or "11"
   Config.secret = "NONE"
   Config.useNonce = false
 
@@ -74,6 +74,10 @@ local Config = {} do
       Config:Messages("[4]: platoboost nonce error.")
     end
   end; Config:SetNonce()
+
+  function Config:SetService(serviceID)
+    self.service = serviceID or "11"
+  end
 
   function Config:CopyKey_Link()
     local s, r = Config:CacheLink()
