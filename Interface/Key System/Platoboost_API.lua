@@ -4,7 +4,7 @@ local lEncode, lDecode, lDigest = a3, aw, Z;
 
 local Config = {} do
   Config.API = "https://api.platorelay.com"
-  Config.service = Config.service or "11"
+  Config.service = Config.service
   Config.secret = "NONE"
   Config.useNonce = false
 
