@@ -20,6 +20,10 @@ local Config = {} do
   local fMathFloor = math.floor
   local fGetHwid = gethwid or function() return game:GetService("Players").LocalPlayer.UserId end
 
+  function Config:SetService(serviceID)
+  self.service = serviceID or "11"
+  end
+  
   local CachedLink = ""
   local CachedTime = 0
 
